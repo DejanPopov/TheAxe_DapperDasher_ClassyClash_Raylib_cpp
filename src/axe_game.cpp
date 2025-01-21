@@ -8,6 +8,7 @@ void print(std::string Message)
 
 int main()
 {
-    InitWindow(350,200, "AXE GAME!");
+    int width  = 350;
+    int height = 200;
+    InitWindow(width,height,"AXE GAME!");
 }
-
