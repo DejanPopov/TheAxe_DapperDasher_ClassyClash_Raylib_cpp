@@ -16,6 +16,8 @@ int main()
     {
         BeginDrawing();
         ClearBackground(RED);
+        // Circle is in the niddle of the screen
+        DrawCircle(175,100,25,BLUE);
         EndDrawing();
     }
 }
