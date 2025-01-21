@@ -10,5 +10,12 @@ int main()
 {
     int width  = 350;
     int height = 200;
-    InitWindow(width,height,"AXE GAME!");
+    InitWindow(width,height,"AXE GAME!");   
+
+    while (true)
+    {
+        BeginDrawing();
+        ClearBackground(RED);
+        EndDrawing();
+    }
 }
