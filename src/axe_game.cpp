@@ -30,13 +30,13 @@ int main()
         // Circle is in the middle of the screen
         DrawCircle(circle_x,circle_y,circle_r,BLUE);
 
-        if (IsKeyDown(KEY_D))
+        if (IsKeyDown(KEY_D) && circle_x < 350)
         {
             // Circle moves by 10 pixel if D is pressed
             circle_x += 10;
         }
 
-        if (IsKeyDown(KEY_A))
+        if (IsKeyDown(KEY_A) && circle_x < 0)
         {
             // Circle moves by 10 pixel if D is pressed
             circle_x =- 10;
