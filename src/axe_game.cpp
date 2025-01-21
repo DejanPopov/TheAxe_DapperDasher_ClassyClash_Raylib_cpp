@@ -42,9 +42,7 @@ int main()
             circle_x =- 10;
         }
 
-
-         /*Game Logic ends here*/
-
+        /*Game Logic ends here*/
         EndDrawing();
     }
 }
