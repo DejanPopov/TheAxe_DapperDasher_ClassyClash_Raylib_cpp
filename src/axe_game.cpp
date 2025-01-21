@@ -37,41 +37,51 @@ int main()
     int b_axe_y {axe_y + axe_len};
 
     int direction {10};
+
+    bool collision_with_axe {false};
     
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(WHITE);
         
-        /*Game Logic begins here*/
-
-        // Circle is in the middle of the screen
-        DrawCircle(circle_x,circle_y,circle_r,BLUE);
-        DrawRectangle(axe_x,axe_y,axe_len,axe_len,RED);
-
-        // Move the Axe
-        // direction = -direction; will reverse to opposite direction
-        axe_y += direction;
-
-        if (axe_y > height || axe_y < 0)
+        // GAME LOOP
+        if (collision_with_axe)
         {
-            direction = -direction;
+            DrawText("Game Over",400,200,20,RED);
         }
-
-        // Move the Circle
-        if (IsKeyDown(KEY_D) && circle_x < width)
+        else
         {
-            // Circle moves by 10 pixel if D is pressed
-            circle_x += 10;
+            /*Game Logic begins here*/
+            // Circle is in the middle of the screen
+            DrawCircle(circle_x,circle_y,circle_r,BLUE);
+            DrawRectangle(axe_x,axe_y,axe_len,axe_len,RED);
+    
+            // Move the Axe
+            // direction = -direction; will reverse to opposite direction
+            axe_y += direction;
+    
+            if (axe_y > height || axe_y < 0)
+            {
+                direction = -direction;
+            }
+    
+            // Move the Circle
+            if (IsKeyDown(KEY_D) && circle_x < width)
+            {
+                // Circle moves by 10 pixel if D is pressed
+                circle_x += 10;
+            }
+    
+            if (IsKeyDown(KEY_A) && circle_x < 0)
+            {
+                // Circle moves by 10 pixel if D is pressed
+                circle_x =- 10;
+            }
+    
+            /*Game Logic ends here*/
         }
-
-        if (IsKeyDown(KEY_A) && circle_x < 0)
-        {
-            // Circle moves by 10 pixel if D is pressed
-            circle_x =- 10;
-        }
-
-        /*Game Logic ends here*/
+        
         EndDrawing();
     }
 }
