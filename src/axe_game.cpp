@@ -9,15 +9,18 @@ void print(std::string Message)
 int main()
 {
     // Window dimensions
-    int width  {350};
-    int height {200};
+    int width  {800};
+    int height {450};
     InitWindow(width,height,"AXE GAME!");
 
-    //Circle coordinates
-    int circle_x {175};
-    int circle_y {100};
+    // Circle coordinates
+    int circle_x {200};
+    int circle_y {200};
     int circle_r {25};
 
+    // Axe coordinates
+    int axe_x {400};
+    int axe_y {0};
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
@@ -29,7 +32,12 @@ int main()
 
         // Circle is in the middle of the screen
         DrawCircle(circle_x,circle_y,circle_r,BLUE);
+        DrawRectangle(axe_x,axe_y,50,50,RED);
 
+        // Move the Axe
+        axe_y += 10;
+
+        // Move the Circle
         if (IsKeyDown(KEY_D) && circle_x < 350)
         {
             // Circle moves by 10 pixel if D is pressed
