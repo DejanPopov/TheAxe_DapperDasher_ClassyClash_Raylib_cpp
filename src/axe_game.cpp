@@ -38,7 +38,11 @@ int main()
 
     int direction {10};
 
-    bool collision_with_axe {false};
+    bool collision_with_axe = 
+        (b_axe_y >= u_circle_y) && 
+        (u_axe_y <= b_circle_y) && 
+        (r_axe_x >= l_circle_x) && 
+        (l_axe_x <= r_circle_x);
     
     while (!WindowShouldClose())
     {
@@ -53,6 +57,24 @@ int main()
         else
         {
             /*Game Logic begins here*/
+
+            // Update edges od axe and circle
+            l_circle_x = circle_x - circle_r;
+            r_circle_x = circle_x + circle_r;
+            u_circle_y = circle_y - circle_r;
+            b_circle_y = circle_y + circle_r;
+            l_axe_x = axe_x;
+            r_axe_x = axe_x + axe_len;
+            u_axe_y = axe_y;
+            b_axe_y = axe_y + axe_len;
+
+            //Update collision with axe
+            collision_with_axe = 
+                (b_axe_y >= u_circle_y) && 
+                (u_axe_y <= b_circle_y) && 
+                (r_axe_x >= l_circle_x) && 
+                (l_axe_x <= r_circle_x);
+
             // Circle is in the middle of the screen
             DrawCircle(circle_x,circle_y,circle_r,BLUE);
             DrawRectangle(axe_x,axe_y,axe_len,axe_len,RED);
