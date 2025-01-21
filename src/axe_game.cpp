@@ -1,4 +1,5 @@
 #include <iostream>
+#include "raylib.h"
 
 void print(std::string Message)
 {
@@ -7,5 +8,6 @@ void print(std::string Message)
 
 int main()
 {
-    print("Hi");
+    InitWindow(350,200, "AXE GAME!");
 }
+
